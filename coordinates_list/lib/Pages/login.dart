@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:coordinates_list/Pages/homeWidgets/home_appBar.dart';
+import 'package:coordinates_list/Pages/homeWidgets/home_drawer.dart';
 import 'package:coordinates_list/Pages/pag01.dart';
 import 'package:flutter/material.dart';
 
@@ -48,6 +49,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: getHomeAppBar(),
+      drawer: getHomeDrawer(),
       body: Container(
         child: const Center(
           child: Text('ola mundo!'),
