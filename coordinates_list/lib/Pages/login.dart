@@ -67,7 +67,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           const SizedBox(
-            height: 20,
+            height: 10,
           ),
           Center(
             child: SizedBox(
@@ -81,6 +81,12 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
+          ),
+          SignInButtonBuilder(
+            text: 'Criar nova conta ',
+            icon: Icons.perm_identity_outlined,
+            onPressed: () {},
+            backgroundColor: Colors.orange,
           ),
         ],
       ),
