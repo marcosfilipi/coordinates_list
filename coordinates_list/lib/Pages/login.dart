@@ -83,7 +83,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           SignInButtonBuilder(
-            text: 'Criar nova conta ',
+            text: '  Criar nova conta ',
             icon: Icons.perm_identity_outlined,
             onPressed: () {},
             backgroundColor: Colors.orange,
