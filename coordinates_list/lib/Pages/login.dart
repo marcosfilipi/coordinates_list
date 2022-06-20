@@ -4,6 +4,8 @@ import 'package:coordinates_list/Pages/pag01.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_signin_button/flutter_signin_button.dart';
 
+import 'cadastro_usuario.dart';
+
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
 
@@ -85,7 +87,11 @@ class _HomePageState extends State<HomePage> {
           SignInButtonBuilder(
             text: '  Criar nova conta ',
             icon: Icons.perm_identity_outlined,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.of(context).push(MaterialPageRoute(builder: (c) {
+                return const RegisterUserScreen();
+              }));
+            },
             backgroundColor: Colors.orange,
           ),
         ],
