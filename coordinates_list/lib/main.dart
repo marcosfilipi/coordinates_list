@@ -1,8 +1,11 @@
+//import 'package:firebase_core/firebase_core.dart';
+//import 'firebase_option.dart';
 import 'package:coordinates_list/Pages/login.dart';
-import 'package:coordinates_list/models/item.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   runApp(const MyApp());
 }
 
