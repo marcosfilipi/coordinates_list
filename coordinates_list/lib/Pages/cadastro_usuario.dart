@@ -19,44 +19,51 @@ class _RegisterUserScreenState extends State<RegisterUserScreen> {
         backgroundColor: const Color(0xff0A6D92),
         title: const Text('Cadastro de Usuário'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            const Text(
-              "Preencha os campos abaixo",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+      body: Form(
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+            children: [
+              SizedBox(
+                height: 20,
               ),
-            ),
-            SizedBox(height: 20),
-            CustomTextFild(
-              label: "Nome",
-              icon: Icons.person,
-            ),
-            SizedBox(height: 15),
-            CustomTextFild(label: "Senha", icon: Icons.password),
-            SizedBox(height: 15),
-            CustomTextFild(
-              label: "Email",
-              icon: Icons.email,
-            ),
-            SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                if (_formKey.currentState!.validate()) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(content: Text('Processing Data')),
-                  );
-                }
-              },
-              child: Text("Enviar"),
-            )
-          ],
+              const Text(
+                "Preencha os campos abaixo",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              SizedBox(height: 20),
+              CustomTextFild(
+                label: "Nome",
+                icon: Icons.person,
+              ),
+              SizedBox(height: 15),
+              CustomTextFild(label: "Senha", icon: Icons.vpn_key),
+              SizedBox(height: 15),
+              CustomTextFild(label: " Confirme sua senha", icon: Icons.vpn_key),
+              SizedBox(height: 15),
+              CustomTextFild(
+                label: "Email",
+                icon: Icons.email,
+              ),
+              SizedBox(height: 20),
+              Builder(builder: (context) {
+                return SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: ElevatedButton.icon(
+                    onPressed: () {
+                      Form.of(context)?.validate();
+                    },
+                    icon: Icon(Icons.save),
+                    label: Text("Salvar"),
+                  ),
+                );
+              }),
+            ],
+          ),
         ),
       ),
     );
@@ -73,19 +80,17 @@ class CustomTextFild extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      validator: (text) {
+        if (text == null || text.isEmpty) {
+          return 'Esse campo tem que ser preenchido!';
+        }
+      },
       decoration: InputDecoration(
         contentPadding: EdgeInsets.all(10),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
         labelText: label,
         prefixIcon: icon == null ? null : Icon(icon),
       ),
-      validator: (value) {
-        if (value == null || value.isEmpty) {
-          return 'Preencha os campos ';
-        }
-
-        return null;
-      },
     );
   }
 }
